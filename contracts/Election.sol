@@ -11,7 +11,7 @@ contract Election {
     struct User {
         uint id;
         string name;
-        address address;
+        address addr;
     }
     mapping(uint => Candidate) public candidates;
 
@@ -35,9 +35,9 @@ contract Election {
 
     }
 
-    function addUsers(string memory _name, address memory _address) {
+    function addUsers(string memory _name, address _addr) private {
         userCount++;
-        Users[userCount] = User(userCount, _name, _address);
+        Users[userCount] = User(userCount, _name, _addr);
     }
 
     function vote (uint _candidateId) public {
